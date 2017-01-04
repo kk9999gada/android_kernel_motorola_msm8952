@@ -112,6 +112,11 @@ static int pop_input_file(void);
 			return DT_V1;
 		}
 
+<*>"/plugin/"	{
+			DPRINT("Keyword: /plugin/\n");
+			return DT_PLUGIN;
+		}
+
 <*>"/memreserve/"	{
 			DPRINT("Keyword: /memreserve/\n");
 			BEGIN_DEFAULT();
@@ -155,6 +160,23 @@ static int pop_input_file(void);
 			yytext[yyleng-1] = '\0';
 			yylval.literal = xstrdup(yytext+1);
 			DPRINT("Character literal: %s\n", yylval.literal);
+			struct data d;
+			DPRINT("Character literal: %s\n", yytext);
+
+			d = data_copy_escape_string(yytext+1, yyleng-2);
+			if (d.len == 1) {
+				lexical_error("Empty character literal");
+				yylval.integer = 0;
+			} else {
+				yylval.integer = (unsigned char)d.val[0];
+
+				if (d.len > 2)
+					lexical_error("Character literal has %d"
+						      " characters instead of 1",
+						      d.len - 1);
+			}
+
+			data_free(d);
 			return DT_CHAR_LITERAL;
 		}
 

@@ -3,6 +3,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define EXTRACT_BYTE(n)	((unsigned long long)((uint8_t *)&x)[n])

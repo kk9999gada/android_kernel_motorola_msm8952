@@ -20,6 +20,7 @@
 
 %{
 #include <stdio.h>
+#include <inttypes.h>
 
 #include "dtc.h"
 #include "srcpos.h"
@@ -35,6 +36,8 @@ extern int treesource_error;
 
 static unsigned long long eval_literal(const char *s, int base, int bits);
 static unsigned char eval_char_literal(const char *s);
+extern struct dt_info *parser_output;
+extern bool treesource_error;
 %}
 
 %union {
@@ -56,9 +59,11 @@ static unsigned char eval_char_literal(const char *s);
 	struct node *nodelist;
 	struct reserve_info *re;
 	uint64_t integer;
+	unsigned int flags;
 }
 
 %token DT_V1
+%token DT_PLUGIN
 %token DT_MEMRESERVE
 %token DT_LSHIFT DT_RSHIFT DT_LE DT_GE DT_EQ DT_NE DT_AND DT_OR
 %token DT_BITS
@@ -76,6 +81,8 @@ static unsigned char eval_char_literal(const char *s);
 
 %type <data> propdata
 %type <data> propdataprefix
+%type <flags> header
+%type <flags> headers
 %type <re> memreserve
 %type <re> memreserves
 %type <array> arrayprefix
@@ -106,10 +113,31 @@ static unsigned char eval_char_literal(const char *s);
 %%
 
 sourcefile:
-	  DT_V1 ';' memreserves devicetree
+	  headers memreserves devicetree
 		{
-			the_boot_info = build_boot_info($3, $4,
-							guess_boot_cpuid($4));
+			parser_output = build_dt_info($1, $2, $3,
+			                              guess_boot_cpuid($3));
+		}
+	;
+
+header:
+	  DT_V1 ';'
+		{
+			$$ = DTSF_V1;
+		}
+	| DT_V1 ';' DT_PLUGIN ';'
+		{
+			$$ = DTSF_V1 | DTSF_PLUGIN;
+		}
+	;
+
+headers:
+	  header
+	| header headers
+		{
+			if ($2 != $1)
+				ERROR(&@2, "Header flags don't match earlier ones");
+			$$ = $1;
 		}
 	;
 

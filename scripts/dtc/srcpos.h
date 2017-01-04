@@ -104,7 +104,6 @@ extern struct srcpos srcpos_empty;
 extern void srcpos_update(struct srcpos *pos, const char *text, int len);
 extern struct srcpos *srcpos_copy(struct srcpos *pos);
 extern char *srcpos_string(struct srcpos *pos);
-extern void srcpos_dump(struct srcpos *pos);
 
 extern void srcpos_verror(struct srcpos *pos, char const *, va_list va)
      __attribute__((format(printf, 2, 0)));
