@@ -87,18 +87,15 @@ extern int yylex(void);
 extern void print_error(char const *fmt, ...);
 extern void yyerror(char const *s);
 
-<<<<<<< HEAD
 extern struct boot_info *the_boot_info;
 extern int treesource_error;
 
 static unsigned long long eval_literal(const char *s, int base, int bits);
 static unsigned char eval_char_literal(const char *s);
-=======
 extern struct dt_info *parser_output;
 extern bool treesource_error;
 
 #line 85 "dtc-parser.tab.c" /* yacc.c:339  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 
 
 /* Line 268 of yacc.c  */
@@ -126,7 +123,6 @@ extern bool treesource_error;
 /* Tokens.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
-<<<<<<< HEAD
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
@@ -153,7 +149,6 @@ extern bool treesource_error;
      DT_REF = 278,
      DT_INCBIN = 279
    };
-=======
   enum yytokentype
   {
     DT_V1 = 258,
@@ -179,24 +174,20 @@ extern bool treesource_error;
     DT_REF = 278,
     DT_INCBIN = 279
   };
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 #endif
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-<<<<<<< HEAD
 typedef union YYSTYPE
 {
 
 /* Line 293 of yacc.c  */
 #line 40 "dtc-parser.y"
-=======
 
 union YYSTYPE
 {
 #line 39 "dtc-parser.y" /* yacc.c:355  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 
 	char *propnodename;
 	char *literal;
@@ -218,18 +209,15 @@ union YYSTYPE
 	uint64_t integer;
 	unsigned int flags;
 
-<<<<<<< HEAD
 
 
 /* Line 293 of yacc.c  */
 #line 174 "dtc-parser.tab.c"
 } YYSTYPE;
-=======
 #line 170 "dtc-parser.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -238,13 +226,10 @@ typedef union YYSTYPE YYSTYPE;
 
 /* Copy the second part of user declarations.  */
 
-<<<<<<< HEAD
 
 /* Line 343 of yacc.c  */
 #line 186 "dtc-parser.tab.c"
-=======
 #line 201 "dtc-parser.tab.c" /* yacc.c:358  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 
 #ifdef short
 # undef short
@@ -463,26 +448,20 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  6
 /* YYLAST -- Last index in YYTABLE.  */
-<<<<<<< HEAD
 #define YYLAST   133
-=======
 #define YYLAST   138
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  48
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  30
 /* YYNRULES -- Number of rules.  */
-<<<<<<< HEAD
 #define YYNRULES  79
 /* YYNRULES -- Number of states.  */
 #define YYNSTATES  141
-=======
 #define YYNRULES  84
 /* YYNSTATES -- Number of states.  */
 #define YYNSTATES  149
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 
 /* YYTRANSLATE(YYLEX) -- Bison symbol number corresponding to YYLEX.  */
 #define YYUNDEFTOK  2
@@ -574,7 +553,6 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-<<<<<<< HEAD
        0,   109,   109,   118,   121,   128,   132,   140,   144,   148,
      158,   172,   180,   183,   190,   194,   198,   202,   210,   214,
      218,   222,   226,   243,   253,   261,   264,   268,   275,   290,
@@ -583,7 +561,6 @@ static const yytype_uint16 yyrline[] =
      386,   387,   391,   392,   393,   394,   395,   399,   400,   401,
      405,   406,   407,   411,   412,   413,   414,   418,   419,   420,
      421,   426,   429,   433,   441,   444,   448,   456,   460,   464
-=======
        0,   109,   109,   117,   121,   128,   129,   139,   142,   149,
      153,   161,   165,   170,   181,   191,   206,   214,   217,   224,
      228,   232,   236,   244,   248,   252,   256,   260,   276,   286,
@@ -593,7 +570,6 @@ static const yytype_uint16 yyrline[] =
      421,   422,   426,   427,   428,   432,   433,   434,   438,   439,
      448,   457,   461,   462,   463,   464,   469,   472,   476,   484,
      487,   491,   499,   503,   507
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 };
 #endif
 
@@ -602,7 +578,6 @@ static const yytype_uint16 yyrline[] =
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-<<<<<<< HEAD
   "$end", "error", "$undefined", "DT_V1", "DT_MEMRESERVE", "DT_LSHIFT",
   "DT_RSHIFT", "DT_LE", "DT_GE", "DT_EQ", "DT_NE", "DT_AND", "DT_OR",
   "DT_BITS", "DT_DEL_PROP", "DT_DEL_NODE", "DT_PROPNODENAME", "DT_LITERAL",
@@ -616,7 +591,6 @@ static const char *const yytname[] =
   "integer_bitor", "integer_bitxor", "integer_bitand", "integer_eq",
   "integer_rela", "integer_shift", "integer_add", "integer_mul",
   "integer_unary", "bytestring", "subnodes", "subnode", 0
-=======
   "$end", "error", "$undefined", "DT_V1", "DT_PLUGIN", "DT_MEMRESERVE",
   "DT_LSHIFT", "DT_RSHIFT", "DT_LE", "DT_GE", "DT_EQ", "DT_NE", "DT_AND",
   "DT_OR", "DT_BITS", "DT_DEL_PROP", "DT_DEL_NODE", "DT_PROPNODENAME",
@@ -631,7 +605,6 @@ static const char *const yytname[] =
   "integer_bitand", "integer_eq", "integer_rela", "integer_shift",
   "integer_add", "integer_mul", "integer_unary", "bytestring", "subnodes",
   "subnode", YY_NULLPTR
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 };
 #endif
 
@@ -648,7 +621,6 @@ static const yytype_uint16 yytoknum[] =
 };
 # endif
 
-<<<<<<< HEAD
 /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
@@ -661,7 +633,6 @@ static const yytype_uint8 yyr1[] =
       70,    70,    70,    71,    71,    71,    71,    72,    72,    72,
       72,    73,    73,    73,    74,    74,    74,    75,    75,    75
 };
-=======
 #define YYPACT_NINF -44
 
 #define yypact_value_is_default(Yystate) \
@@ -671,12 +642,10 @@ static const yytype_uint8 yyr1[] =
 
 #define yytable_value_is_error(Yytable_value) \
   0
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 
 /* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
-<<<<<<< HEAD
        0,     2,     4,     0,     2,     4,     2,     2,     3,     3,
        4,     5,     0,     2,     4,     2,     3,     2,     2,     3,
        4,     2,     9,     5,     2,     0,     2,     2,     3,     1,
@@ -685,7 +654,6 @@ static const yytype_uint8 yyr2[] =
        3,     3,     1,     3,     3,     3,     3,     3,     3,     1,
        3,     3,     1,     3,     3,     3,     1,     1,     2,     2,
        2,     0,     2,     2,     0,     2,     2,     2,     3,     2
-=======
       14,    27,    61,    14,     8,    18,   -44,   -44,    37,     8,
       40,     8,    64,   -44,   -44,   -12,    37,   -44,    50,    52,
      -44,   -44,   -12,   -12,   -12,   -44,    51,   -44,    -4,    78,
@@ -701,7 +669,6 @@ static const yytype_uint8 yyr2[] =
      -44,   -44,   -44,    85,   -44,   -44,   -44,    75,   -44,   -44,
       21,    71,    88,    -6,   -44,   -44,   -44,   -44,   -44,    11,
      -44,   -44,   -44,    37,   -44,    77,    37,    81,   -44
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 };
 
 /* YYDEFACT[STATE-NAME] -- Default reduction number in state STATE-NUM.
@@ -709,7 +676,6 @@ static const yytype_uint8 yyr2[] =
    means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-<<<<<<< HEAD
        0,     0,     0,     3,     1,     0,     0,     0,     3,    33,
       34,     0,     0,     6,     0,     2,     4,     0,     0,     0,
       67,     0,    36,    37,    39,    41,    43,    45,    47,    49,
@@ -725,7 +691,6 @@ static const yytype_uint8 yydefact[] =
       71,    29,     0,     0,     0,     0,    32,    31,    19,    30,
       28,     0,    72,    73,    20,     0,    23,     0,     0,     0,
       22
-=======
        0,     0,     0,     5,     7,     3,     1,     6,     0,     0,
        0,     7,     0,    38,    39,     0,     0,    10,     0,     2,
        8,     4,     0,     0,     0,    72,     0,    41,    42,    44,
@@ -741,21 +706,17 @@ static const yytype_uint8 yydefact[] =
       29,    19,    31,     0,    23,    32,    26,     0,    76,    34,
        0,     0,     0,     0,    37,    36,    24,    35,    33,     0,
       77,    78,    25,     0,    28,     0,     0,     0,    27
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-<<<<<<< HEAD
       -1,     2,     7,     8,    15,    36,    64,    91,   109,   110,
      122,    20,    21,    22,    23,    24,    25,    26,    27,    28,
       29,    30,    31,    32,    33,   125,    92,    93
-=======
      -44,   -44,   -44,   103,    99,   104,   -44,   -43,   -44,   -21,
      -44,   -44,   -44,    -8,    63,     9,   -44,    65,    67,    68,
       69,    62,    26,     4,    22,    23,   -19,   -44,    20,    28
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 };
 
 /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
@@ -763,7 +724,6 @@ static const yytype_int8 yydefgoto[] =
 #define YYPACT_NINF -78
 static const yytype_int8 yypact[] =
 {
-<<<<<<< HEAD
       22,    11,    51,    10,   -78,    23,    10,     2,    10,   -78,
      -78,    -9,    23,   -78,    30,    38,   -78,    -9,    -9,    -9,
      -78,    35,   -78,    -6,    52,    29,    48,    49,    33,     3,
@@ -779,21 +739,17 @@ static const yytype_int8 yypact[] =
      -78,   -78,    32,    66,    82,    -3,   -78,   -78,   -78,   -78,
      -78,    46,   -78,   -78,   -78,    23,   -78,    70,    23,    72,
      -78
-=======
       -1,     2,     3,     4,    10,    11,    19,    41,    70,    98,
      117,   118,   130,    25,    26,    27,    28,    29,    30,    31,
       32,    33,    34,    35,    36,    37,    38,   133,    99,   100
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-<<<<<<< HEAD
      -78,   -78,    97,   100,   -78,   -37,   -78,   -77,   -78,   -78,
      -78,    -5,    65,    13,   -78,    76,    77,    62,    80,    83,
       34,    20,    26,    28,   -14,   -78,    18,    24
-=======
       16,    73,    74,    46,    47,    48,    13,    14,    39,    50,
       58,    59,   120,     8,   140,   121,   141,     1,    94,    95,
       96,    15,    12,    66,   122,    97,   142,    56,    57,   102,
@@ -808,7 +764,6 @@ static const yytype_int8 yypgoto[] =
       20,   146,   114,    17,    76,    75,   148,    80,     0,    77,
      113,    78,   137,    79,     0,   110,     0,     0,     0,     0,
        0,     0,     0,     0,     0,   145,     0,     0,   147
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
@@ -817,7 +772,6 @@ static const yytype_int8 yypgoto[] =
 #define YYTABLE_NINF -1
 static const yytype_uint8 yytable[] =
 {
-<<<<<<< HEAD
       12,    66,    67,    40,    41,    42,    44,    34,     9,    10,
       52,    53,   115,   101,     5,   112,   104,   132,   113,   133,
      116,   117,   118,   119,    11,     1,    60,   114,    14,   134,
@@ -836,7 +790,6 @@ static const yytype_uint8 yytable[] =
 
 #define yypact_value_is_default(yystate) \
   ((yystate) == (-78))
-=======
        8,    44,    45,    22,    23,    24,    18,    19,    16,    13,
        8,     9,    22,     5,    20,    25,    22,     3,    15,    16,
       17,    33,     4,    26,    34,    22,    32,    10,    11,    72,
@@ -873,14 +826,12 @@ static const yytype_uint8 yystos[] =
       60,    18,    33,    75,    22,    23,    30,    61,    36,    21,
       20,    22,    32,    34,    35,    61,    34,    61,    35
 };
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 
 #define yytable_value_is_error(yytable_value) \
   YYID (0)
 
 static const yytype_int16 yycheck[] =
 {
-<<<<<<< HEAD
        5,    38,    39,    17,    18,    19,    12,    12,    17,    18,
        7,     8,    13,    90,     4,    22,    93,    20,    25,    22,
       21,    22,    23,    24,    33,     3,    26,    34,    26,    32,
@@ -895,7 +846,6 @@ static const yytype_int16 yycheck[] =
       45,    93,    -1,    -1,    90,    -1,    -1,   122,    -1,    -1,
       44,    -1,    -1,    46,    -1,    -1,    -1,    -1,    48,    -1,
      135,    -1,    49,   138
-=======
        0,    48,    49,    50,    50,    51,    51,    52,    52,    53,
       53,    54,    54,    54,    54,    54,    55,    56,    56,    57,
       57,    57,    57,    58,    58,    58,    58,    58,    58,    58,
@@ -905,14 +855,12 @@ static const yytype_int16 yycheck[] =
       70,    70,    71,    71,    71,    72,    72,    72,    73,    73,
       73,    73,    74,    74,    74,    74,    75,    75,    75,    76,
       76,    76,    77,    77,    77
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 };
 
 /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
    symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-<<<<<<< HEAD
        0,     3,    49,    25,     0,     4,    22,    50,    51,    17,
       18,    33,    59,    51,    26,    52,    50,    43,    46,    47,
       59,    60,    61,    62,    63,    64,    65,    66,    67,    68,
@@ -928,7 +876,6 @@ static const yytype_uint8 yystos[] =
       31,    36,    58,    17,    33,    73,    22,    23,    30,    59,
       36,    21,    20,    22,    32,    34,    35,    59,    34,    59,
       35
-=======
        0,     2,     3,     2,     4,     1,     2,     0,     2,     4,
        2,     2,     3,     4,     3,     4,     5,     0,     2,     4,
        2,     3,     2,     2,     3,     4,     2,     9,     5,     2,
@@ -938,7 +885,6 @@ static const yytype_uint8 yystos[] =
        3,     3,     3,     3,     1,     3,     3,     1,     3,     3,
        3,     1,     1,     2,     2,     2,     0,     2,     2,     0,
        2,     2,     2,     3,     2
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 };
 
 #define yyerrok		(yyerrstatus = 0)
@@ -1773,7 +1719,6 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-<<<<<<< HEAD
 
 /* Line 1806 of yacc.c  */
 #line 110 "dtc-parser.y"
@@ -1787,7 +1732,6 @@ yyreduce:
 
 /* Line 1806 of yacc.c  */
 #line 118 "dtc-parser.y"
-=======
 #line 110 "dtc-parser.y" /* yacc.c:1646  */
     {
 			parser_output = build_dt_info((yyvsp[-2].flags), (yyvsp[-1].re), (yyvsp[0].node),
@@ -1798,18 +1742,15 @@ yyreduce:
 
   case 3:
 #line 118 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.flags) = DTSF_V1;
 		}
-<<<<<<< HEAD
     break;
 
   case 4:
 
 /* Line 1806 of yacc.c  */
 #line 122 "dtc-parser.y"
-=======
 #line 1486 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
@@ -1841,93 +1782,77 @@ yyreduce:
 
   case 8:
 #line 143 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.re) = chain_reserve_entry((yyvsp[(1) - (2)].re), (yyvsp[(2) - (2)].re));
 		}
-<<<<<<< HEAD
     break;
 
   case 5:
 
 /* Line 1806 of yacc.c  */
 #line 129 "dtc-parser.y"
-=======
 #line 1520 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
 #line 150 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.re) = build_reserve_entry((yyvsp[(2) - (4)].integer), (yyvsp[(3) - (4)].integer));
 		}
-<<<<<<< HEAD
     break;
 
   case 6:
 
 /* Line 1806 of yacc.c  */
 #line 133 "dtc-parser.y"
-=======
 #line 1528 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
 #line 154 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			add_label(&(yyvsp[(2) - (2)].re)->labels, (yyvsp[(1) - (2)].labelref));
 			(yyval.re) = (yyvsp[(2) - (2)].re);
 		}
-<<<<<<< HEAD
     break;
 
   case 7:
 
 /* Line 1806 of yacc.c  */
 #line 141 "dtc-parser.y"
-=======
 #line 1537 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
 #line 162 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.node) = name_node((yyvsp[(2) - (2)].node), "");
 		}
-<<<<<<< HEAD
     break;
 
   case 8:
 
 /* Line 1806 of yacc.c  */
 #line 145 "dtc-parser.y"
-=======
 #line 1545 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
 #line 166 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.node) = merge_nodes((yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node));
 		}
-<<<<<<< HEAD
     break;
 
   case 9:
 
 /* Line 1806 of yacc.c  */
 #line 149 "dtc-parser.y"
-=======
 #line 1553 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
 #line 171 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			struct node *target = get_node_by_ref((yyvsp[(1) - (3)].node), (yyvsp[(2) - (3)].labelref));
 
@@ -1936,21 +1861,24 @@ yyreduce:
 			else
 				print_error("label or path, '%s', not found", (yyvsp[(2) - (3)].labelref));
 			(yyval.node) = (yyvsp[(1) - (3)].node);
+			if (target) {
+				add_label(&target->labels, (yyvsp[-2].labelref));
+				merge_nodes(target, (yyvsp[0].node));
+			} else
+				ERROR(&(yylsp[-1]), "Label or path %s not found", (yyvsp[-1].labelref));
+			(yyval.node) = (yyvsp[-3].node);
 		}
-<<<<<<< HEAD
     break;
 
   case 10:
 
 /* Line 1806 of yacc.c  */
 #line 159 "dtc-parser.y"
-=======
 #line 1568 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
 #line 182 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			struct node *target = get_node_by_ref((yyvsp[(1) - (4)].node), (yyvsp[(3) - (4)].labelref));
 
@@ -1961,11 +1889,9 @@ yyreduce:
 
 			(yyval.node) = (yyvsp[(1) - (4)].node);
 		}
-<<<<<<< HEAD
     break;
 
   case 11:
-=======
 #line 1582 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
@@ -1973,192 +1899,159 @@ yyreduce:
 #line 192 "dtc-parser.y" /* yacc.c:1646  */
     {
 			struct node *target = get_node_by_ref((yyvsp[-3].node), (yyvsp[-1].labelref));
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 
 /* Line 1806 of yacc.c  */
 #line 173 "dtc-parser.y"
     {
 			(yyval.node) = build_node((yyvsp[(2) - (5)].proplist), (yyvsp[(3) - (5)].nodelist));
 		}
-<<<<<<< HEAD
     break;
 
   case 12:
 
 /* Line 1806 of yacc.c  */
 #line 180 "dtc-parser.y"
-=======
 #line 1598 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
 #line 207 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.proplist) = NULL;
 		}
-<<<<<<< HEAD
     break;
 
   case 13:
 
 /* Line 1806 of yacc.c  */
 #line 184 "dtc-parser.y"
-=======
 #line 1606 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
 #line 214 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.proplist) = chain_property((yyvsp[(2) - (2)].prop), (yyvsp[(1) - (2)].proplist));
 		}
-<<<<<<< HEAD
     break;
 
   case 14:
 
 /* Line 1806 of yacc.c  */
 #line 191 "dtc-parser.y"
-=======
 #line 1614 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 18:
 #line 218 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.prop) = build_property((yyvsp[(1) - (4)].propnodename), (yyvsp[(3) - (4)].data));
 		}
-<<<<<<< HEAD
     break;
 
   case 15:
 
 /* Line 1806 of yacc.c  */
 #line 195 "dtc-parser.y"
-=======
 #line 1622 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 19:
 #line 225 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.prop) = build_property((yyvsp[(1) - (2)].propnodename), empty_data);
 		}
-<<<<<<< HEAD
     break;
 
   case 16:
 
 /* Line 1806 of yacc.c  */
 #line 199 "dtc-parser.y"
-=======
 #line 1630 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
 #line 229 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.prop) = build_property_delete((yyvsp[(2) - (3)].propnodename));
 		}
-<<<<<<< HEAD
     break;
 
   case 17:
 
 /* Line 1806 of yacc.c  */
 #line 203 "dtc-parser.y"
-=======
 #line 1638 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 21:
 #line 233 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			add_label(&(yyvsp[(2) - (2)].prop)->labels, (yyvsp[(1) - (2)].labelref));
 			(yyval.prop) = (yyvsp[(2) - (2)].prop);
 		}
-<<<<<<< HEAD
     break;
 
   case 18:
 
 /* Line 1806 of yacc.c  */
 #line 211 "dtc-parser.y"
-=======
 #line 1646 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 22:
 #line 237 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.data) = data_merge((yyvsp[(1) - (2)].data), (yyvsp[(2) - (2)].data));
 		}
-<<<<<<< HEAD
     break;
 
   case 19:
 
 /* Line 1806 of yacc.c  */
 #line 215 "dtc-parser.y"
-=======
 #line 1655 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 23:
 #line 245 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.data) = data_merge((yyvsp[(1) - (3)].data), (yyvsp[(2) - (3)].array).data);
 		}
-<<<<<<< HEAD
     break;
 
   case 20:
 
 /* Line 1806 of yacc.c  */
 #line 219 "dtc-parser.y"
-=======
 #line 1663 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 24:
 #line 249 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.data) = data_merge((yyvsp[(1) - (4)].data), (yyvsp[(3) - (4)].data));
 		}
-<<<<<<< HEAD
     break;
 
   case 21:
 
 /* Line 1806 of yacc.c  */
 #line 223 "dtc-parser.y"
-=======
 #line 1671 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 25:
 #line 253 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.data) = data_add_marker((yyvsp[(1) - (2)].data), REF_PATH, (yyvsp[(2) - (2)].labelref));
 		}
-<<<<<<< HEAD
     break;
 
   case 22:
 
 /* Line 1806 of yacc.c  */
 #line 227 "dtc-parser.y"
-=======
 #line 1679 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
@@ -2172,7 +2065,6 @@ yyreduce:
 
   case 27:
 #line 261 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			FILE *f = srcfile_relative_open((yyvsp[(4) - (9)].data).val, NULL);
 			struct data d;
@@ -2189,20 +2081,17 @@ yyreduce:
 			(yyval.data) = data_merge((yyvsp[(1) - (9)].data), d);
 			fclose(f);
 		}
-<<<<<<< HEAD
     break;
 
   case 23:
 
 /* Line 1806 of yacc.c  */
 #line 244 "dtc-parser.y"
-=======
 #line 1707 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 28:
 #line 277 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			FILE *f = srcfile_relative_open((yyvsp[(4) - (5)].data).val, NULL);
 			struct data d = empty_data;
@@ -2212,24 +2101,20 @@ yyreduce:
 			(yyval.data) = data_merge((yyvsp[(1) - (5)].data), d);
 			fclose(f);
 		}
-<<<<<<< HEAD
     break;
 
   case 24:
 
 /* Line 1806 of yacc.c  */
 #line 254 "dtc-parser.y"
-=======
 #line 1721 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 29:
 #line 287 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.data) = data_add_marker((yyvsp[(1) - (2)].data), LABEL, (yyvsp[(2) - (2)].labelref));
 		}
-<<<<<<< HEAD
     break;
 
   case 25:
@@ -2245,7 +2130,6 @@ yyreduce:
 
 /* Line 1806 of yacc.c  */
 #line 265 "dtc-parser.y"
-=======
 #line 1729 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
@@ -2259,32 +2143,26 @@ yyreduce:
 
   case 31:
 #line 298 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.data) = (yyvsp[(1) - (2)].data);
 		}
-<<<<<<< HEAD
     break;
 
   case 27:
 
 /* Line 1806 of yacc.c  */
 #line 269 "dtc-parser.y"
-=======
 #line 1745 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 32:
 #line 302 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.data) = data_add_marker((yyvsp[(1) - (2)].data), LABEL, (yyvsp[(2) - (2)].labelref));
 		}
-<<<<<<< HEAD
     break;
 
   case 28:
-=======
 #line 1753 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
@@ -2301,7 +2179,6 @@ yyreduce:
 				      " 8, 16, 32 or 64-bits");
 				bits = 32;
 			}
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 
 /* Line 1806 of yacc.c  */
 #line 276 "dtc-parser.y"
@@ -2319,38 +2196,32 @@ yyreduce:
 				(yyval.array).bits = 32;
 			}
 		}
-<<<<<<< HEAD
     break;
 
   case 29:
 
 /* Line 1806 of yacc.c  */
 #line 291 "dtc-parser.y"
-=======
 #line 1773 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 34:
 #line 325 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.array).data = empty_data;
 			(yyval.array).bits = 32;
 		}
-<<<<<<< HEAD
     break;
 
   case 30:
 
 /* Line 1806 of yacc.c  */
 #line 296 "dtc-parser.y"
-=======
 #line 1782 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 35:
 #line 330 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			if ((yyvsp[(1) - (2)].array).bits < 64) {
 				uint64_t mask = (1ULL << (yyvsp[(1) - (2)].array).bits) - 1;
@@ -2370,20 +2241,17 @@ yyreduce:
 
 			(yyval.array).data = data_append_integer((yyvsp[(1) - (2)].array).data, (yyvsp[(2) - (2)].integer), (yyvsp[(1) - (2)].array).bits);
 		}
-<<<<<<< HEAD
     break;
 
   case 31:
 
 /* Line 1806 of yacc.c  */
 #line 316 "dtc-parser.y"
-=======
 #line 1805 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 36:
 #line 349 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			uint64_t val = ~0ULL >> (64 - (yyvsp[(1) - (2)].array).bits);
 
@@ -2406,41 +2274,34 @@ yyreduce:
     {
 			(yyval.array).data = data_add_marker((yyvsp[(1) - (2)].array).data, LABEL, (yyvsp[(2) - (2)].labelref));
 		}
-<<<<<<< HEAD
     break;
 
   case 33:
 
 /* Line 1806 of yacc.c  */
 #line 337 "dtc-parser.y"
-=======
 #line 1823 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 37:
 #line 363 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.integer) = eval_literal((yyvsp[(1) - (1)].literal), 0, 64);
 		}
-<<<<<<< HEAD
     break;
 
   case 34:
 
 /* Line 1806 of yacc.c  */
 #line 341 "dtc-parser.y"
-=======
 #line 1831 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 40:
 #line 372 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.integer) = eval_char_literal((yyvsp[(1) - (1)].literal));
 		}
-<<<<<<< HEAD
     break;
 
   case 35:
@@ -2619,7 +2480,6 @@ yyreduce:
 
 /* Line 1806 of yacc.c  */
 #line 430 "dtc-parser.y"
-=======
 #line 1839 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
@@ -2771,121 +2631,100 @@ yyreduce:
 
   case 76:
 #line 469 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.data) = data_append_byte((yyvsp[(1) - (2)].data), (yyvsp[(2) - (2)].byte));
 		}
-<<<<<<< HEAD
     break;
 
   case 73:
 
 /* Line 1806 of yacc.c  */
 #line 434 "dtc-parser.y"
-=======
 #line 1993 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 77:
 #line 473 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.data) = data_add_marker((yyvsp[(1) - (2)].data), LABEL, (yyvsp[(2) - (2)].labelref));
 		}
-<<<<<<< HEAD
     break;
 
   case 74:
 
 /* Line 1806 of yacc.c  */
 #line 441 "dtc-parser.y"
-=======
 #line 2001 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 78:
 #line 477 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.nodelist) = NULL;
 		}
-<<<<<<< HEAD
     break;
 
   case 75:
 
 /* Line 1806 of yacc.c  */
 #line 445 "dtc-parser.y"
-=======
 #line 2009 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 79:
 #line 484 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.nodelist) = chain_node((yyvsp[(1) - (2)].node), (yyvsp[(2) - (2)].nodelist));
 		}
-<<<<<<< HEAD
     break;
 
   case 76:
 
 /* Line 1806 of yacc.c  */
 #line 449 "dtc-parser.y"
-=======
 #line 2017 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 80:
 #line 488 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			print_error("syntax error: properties must precede subnodes");
 			YYERROR;
 		}
-<<<<<<< HEAD
     break;
 
   case 77:
 
 /* Line 1806 of yacc.c  */
 #line 457 "dtc-parser.y"
-=======
 #line 2025 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 81:
 #line 492 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.node) = name_node((yyvsp[(2) - (2)].node), (yyvsp[(1) - (2)].propnodename));
 		}
-<<<<<<< HEAD
     break;
 
   case 78:
 
 /* Line 1806 of yacc.c  */
 #line 461 "dtc-parser.y"
-=======
 #line 2034 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 82:
 #line 500 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			(yyval.node) = name_node(build_node_delete(), (yyvsp[(2) - (3)].propnodename));
 		}
-<<<<<<< HEAD
     break;
 
   case 79:
 
 /* Line 1806 of yacc.c  */
 #line 465 "dtc-parser.y"
-=======
 #line 2042 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
@@ -2899,25 +2738,21 @@ yyreduce:
 
   case 84:
 #line 508 "dtc-parser.y" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
     {
 			add_label(&(yyvsp[(2) - (2)].node)->labels, (yyvsp[(1) - (2)].labelref));
 			(yyval.node) = (yyvsp[(2) - (2)].node);
 		}
-<<<<<<< HEAD
     break;
 
 
 
 /* Line 1806 of yacc.c  */
 #line 2154 "dtc-parser.tab.c"
-=======
 #line 2059 "dtc-parser.tab.c" /* yacc.c:1646  */
     break;
 
 
 #line 2063 "dtc-parser.tab.c" /* yacc.c:1646  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -3144,10 +2979,7 @@ yyreturn:
   /* Make sure YYID is used.  */
   return YYID (yyresult);
 }
-<<<<<<< HEAD
-=======
 #line 514 "dtc-parser.y" /* yacc.c:1906  */
->>>>>>> a544523929da... UPSTREAM: scripts/dtc: Update to upstream version 0931cea3ba20
 
 
 

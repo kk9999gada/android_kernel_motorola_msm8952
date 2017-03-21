@@ -24,6 +24,17 @@
  */
 
 static inline void __attribute__((noreturn)) die(char * str, ...)
+#ifdef __GNUC__
+#define PRINTF(i, j)	__attribute__((format (printf, i, j)))
+#define NORETURN	__attribute__((noreturn))
+#else
+#define PRINTF(i, j)
+#define NORETURN
+#endif
+
+#define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
+
+static inline void NORETURN PRINTF(1, 2) die(const char *str, ...)
 {
 	va_list ap;
 
@@ -48,13 +59,14 @@ static inline void *xrealloc(void *p, size_t len)
 	void *new = realloc(p, len);
 
 	if (!new)
-		die("realloc() failed (len=%d)\n", len);
+		die("realloc() failed (len=%zd)\n", len);
 
 	return new;
 }
 
 extern char *xstrdup(const char *s);
-extern int xasprintf(char **strp, const char *fmt, ...);
+
+extern int PRINTF(2, 3) xasprintf(char **strp, const char *fmt, ...);
 extern char *join_path(const char *path, const char *name);
 
 /**
@@ -150,5 +162,86 @@ int utilfdt_decode_type(const char *fmt, int *type, int *size);
 	"<type>\ts=string, i=int, u=unsigned, x=hex\n" \
 	"\tOptional modifier prefix:\n" \
 	"\t\thh or b=byte, h=2 byte, l=4 byte (default)\n";
+	"\t\thh or b=byte, h=2 byte, l=4 byte (default)";
+
+/**
+ * Print property data in a readable format to stdout
+ *
+ * Properties that look like strings will be printed as strings. Otherwise
+ * the data will be displayed either as cells (if len is a multiple of 4
+ * bytes) or bytes.
+ *
+ * If len is 0 then this function does nothing.
+ *
+ * @param data	Pointers to property data
+ * @param len	Length of property data
+ */
+void utilfdt_print_data(const char *data, int len);
+
+/**
+ * Show source version and exit
+ */
+void NORETURN util_version(void);
+
+/**
+ * Show usage and exit
+ *
+ * This helps standardize the output of various utils.  You most likely want
+ * to use the usage() helper below rather than call this.
+ *
+ * @param errmsg	If non-NULL, an error message to display
+ * @param synopsis	The initial example usage text (and possible examples)
+ * @param short_opts	The string of short options
+ * @param long_opts	The structure of long options
+ * @param opts_help	An array of help strings (should align with long_opts)
+ */
+void NORETURN util_usage(const char *errmsg, const char *synopsis,
+			 const char *short_opts,
+			 struct option const long_opts[],
+			 const char * const opts_help[]);
+
+/**
+ * Show usage and exit
+ *
+ * If you name all your usage variables with usage_xxx, then you can call this
+ * help macro rather than expanding all arguments yourself.
+ *
+ * @param errmsg	If non-NULL, an error message to display
+ */
+#define usage(errmsg) \
+	util_usage(errmsg, usage_synopsis, usage_short_opts, \
+		   usage_long_opts, usage_opts_help)
+
+/**
+ * Call getopt_long() with standard options
+ *
+ * Since all util code runs getopt in the same way, provide a helper.
+ */
+#define util_getopt_long() getopt_long(argc, argv, usage_short_opts, \
+				       usage_long_opts, NULL)
+
+/* Helper for aligning long_opts array */
+#define a_argument required_argument
+
+/* Helper for usage_short_opts string constant */
+#define USAGE_COMMON_SHORT_OPTS "hV"
+
+/* Helper for usage_long_opts option array */
+#define USAGE_COMMON_LONG_OPTS \
+	{"help",      no_argument, NULL, 'h'}, \
+	{"version",   no_argument, NULL, 'V'}, \
+	{NULL,        no_argument, NULL, 0x0}
+
+/* Helper for usage_opts_help array */
+#define USAGE_COMMON_OPTS_HELP \
+	"Print this help and exit", \
+	"Print version and exit", \
+	NULL
+
+/* Helper for getopt case statements */
+#define case_USAGE_COMMON_FLAGS \
+	case 'h': usage(NULL); \
+	case 'V': util_version(); \
+	case '?': usage("unknown option");
 
 #endif /* _UTIL_H */

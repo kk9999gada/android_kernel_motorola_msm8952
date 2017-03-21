@@ -170,6 +170,46 @@ static const char *guess_type_by_name(const char *fname, const char *fallback)
 	fprintf(stderr, "\t-E [no-]<checkname>\n");
 	fprintf(stderr, "\t\t\tenable or disable warnings and errors\n");
 	exit(3);
+	const char *s;
+
+	s = strrchr(fname, '.');
+	if (s == NULL)
+		return fallback;
+	if (!strcasecmp(s, ".dts"))
+		return "dts";
+	if (!strcasecmp(s, ".dtb"))
+		return "dtb";
+	return fallback;
+}
+
+static const char *guess_input_format(const char *fname, const char *fallback)
+{
+	struct stat statbuf;
+	fdt32_t magic;
+	FILE *f;
+
+	if (stat(fname, &statbuf) != 0)
+		return fallback;
+
+	if (S_ISDIR(statbuf.st_mode))
+		return "fs";
+
+	if (!S_ISREG(statbuf.st_mode))
+		return fallback;
+
+	f = fopen(fname, "r");
+	if (f == NULL)
+		return fallback;
+	if (fread(&magic, 4, 1, f) != 1) {
+		fclose(f);
+		return fallback;
+	}
+	fclose(f);
+
+	if (fdt32_to_cpu(magic) == FDT_MAGIC)
+		return "dtb";
+
+	return guess_type_by_name(fname, fallback);
 }
 
 int main(int argc, char *argv[])
@@ -226,7 +266,7 @@ int main(int argc, char *argv[])
 			alignsize = strtol(optarg, NULL, 0);
 			if (!is_power_of_2(alignsize))
 				die("Invalid argument \"%d\" to -a option\n",
-				    optarg);
+				    alignsize);
 			break;
 		case 'f':
 			force = 1;
@@ -310,6 +350,8 @@ int main(int argc, char *argv[])
 		dti = dt_from_blob(arg);
 	else
 		die("Unknown input format \"%s\"\n", inform);
+
+	dti->outname = outname;
 
 	if (depfile) {
 		fputc('\n', depfile);
